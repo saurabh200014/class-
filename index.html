@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Student Info Validator</title>
+        
+ 
+    </head>
+    <script>  
+          
+        class Student  
+        {  
+            constructor(name,roll_no,age,gender)  
+            {  
+              this.roll_no=roll_no;  
+              this.name=name; 
+              this.age=age;
+              this.gender=gender; 
+            }  
+       
+            printStudentDetail()  
+            {  
+               document.writeln("<b>Name</b>: "+this.name+"<br>","<b>Age:</b> "+this.age+"<br>"+"<b>Gender:</b>"+this.gender+"<br>"+"<b>Roll no</b>: "+this.roll_no+"<br>")  
+            }  
+        }  
+        Student.prototype.college=function()  
+            {  
+                document.writeln("<b>College:</b> "+"VESIT")
+            } 
+            name=prompt("Enter Name");
+            roll_no=prompt("Enter Roll_no");
+            age= prompt("Enter Age");
+            gender=prompt("Enter Gender");
+           
+              try{
+                 if(isNaN(roll_no)) throw "Roll no entered is not a number.Enter correct roll number";
+                 else if(roll_no==0) throw "Roll no cannot be zero";
+                 if(age<17 || age>21) throw "Enter valid age"
+                 else
+                 {
+                    var s1=new Student(name,roll_no,age,gender); 
+                    document.writeln("<u>Details Entered in Prompt</u><br>"); 
+                    s1.printStudentDetail(); 
+                    s1.college();
+                 }
+              }
+              catch(e){
+                document.writeln(e)
+                    }
+            document.writeln("<br><br><u>Student2 details</u><br>");
+            var s2=new Student("Saurabh Borawake",06);
+            s2.age=19;
+            s2.gender="Male";
+            s2.printStudentDetail();
+            s2.college();
+
+            var s3 = {   
+                Name: "Tanu", 
+                age: 18, 
+                gender:"female",
+                roll_no:3,
+                printStudentDetail: function () 
+                { 
+                    document.write("<br><br><u>Student3 details</u><br>")
+                    document.write("<b>Name</b>: "+this.Name+"<br>","<b>Age:</b> "+this.age+"<br>"+"<b>Gender:</b>"+this.gender+"<br>"+"<b>Roll no</b>: "+this.roll_no+"<br>")
+                }
+            };
+
+            s3.printStudentDetail()
+    </script> 
+    <body>
+    </body>
+</html>
